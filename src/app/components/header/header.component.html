@@ -1,0 +1,65 @@
+<header>
+    <div class="logo">
+        <a routerLink="/home">
+            <h1>Dripify</h1>
+        </a>
+    </div>
+    <div class="navigation-menu">
+        <nav>
+            <ul>
+                <li>
+                    <a routerLink="">Home</a>
+                </li>
+                <li>
+                    <a routerLink="/collections">Collections</a>
+                </li>
+                <li>
+                    <a routerLink="/offers">Special Offers</a>
+                </li>
+                <li>
+                    <a routerLink="/about">About</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="user">
+            <div class="cart">
+                <span *ngIf="cartItems > 0"> {{cartItems}} </span>
+                <i class="pi pi-shopping-cart"></i>
+            </div>
+            <p-button icon="pi pi-user" severity="info" (click)="toggleSidebar()"></p-button>
+        </div>
+    </div>
+    <div class="burger">
+        <app-burger></app-burger>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar" [ngClass]="{'open': showSidebar}">
+        <div class="close-button" (click)="toggleSidebar()">
+            <i class="pi pi-times"></i>
+        </div>
+        <div class="content">
+            <img style="width: 200px;" src="https://www.svgrepo.com/show/509003/avatar-thinking-6.svg" alt="avatar">
+            <span>Login or create an account</span>
+            <div class="form">
+                <form [formGroup]="loginForm">
+                    <div class="p-inputgroup">
+                        <span class="p-inputgroup-addon">
+                            <i class="pi pi-envelope"></i>
+                        </span>
+                        <input pInputText placeholder="Email" formControlName="email" />
+                    </div>
+                    <div class="p-inputgroup">
+                        <span class="p-inputgroup-addon">
+                            <i class="pi pi-lock"></i>
+                        </span>
+                        <input pInputText placeholder="Password" formControlName="password" />
+                    </div>
+                    <p-button label="Login"></p-button>
+                </form>
+            </div>
+            <span>Or</span>
+            <p-button label="Create Account"></p-button>
+        </div>
+    </div>
+</header>

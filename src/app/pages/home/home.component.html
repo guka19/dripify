@@ -1,0 +1,70 @@
+<!-- home.component.html -->
+
+<div class="container">
+    <div class="categories">
+        <div class="categories-container">
+            <div class="category">
+                <img src="https://static.bershka.net/4/static/images/home/2024/0119/man/D_slide_man_jackets_-1.jpg?20240129020206&imwidth=375&impolicy=bershka-itxhigh&imformat=chrome" alt="category-img">
+                <span>Jackets and coats</span>
+            </div>
+            <div class="category">
+                <img src="https://static.bershka.net/4/static/images/home/2024/0119/man/D_slide_man_jeans_-1.jpg?20240129020206&imwidth=375&impolicy=bershka-itxhigh&imformat=chrome" alt="category-img">
+                <span>Trousers</span>
+            </div>
+            <div class="category">
+                <img src="https://static.bershka.net/4/static/images/home/2024/0119/man/D_slide_man_sweatshirts_-1.jpg?20240129020206&imwidth=375&impolicy=bershka-itxhigh&imformat=chrome" alt="category-img">
+                <span>Sweatshirts and hoodies</span>
+            </div>
+            <div class="category">
+                <img src="https://static.bershka.net/4/static/images/home/2024/0119/man/D_slide_man_tshirts_-1.jpg?20240129020206&imwidth=375&impolicy=bershka-itxhigh&imformat=chrome" alt="category-img">
+                <span>T-shirts</span>
+            </div>
+            <div class="category">
+                <img src="https://static.bershka.net/4/static/images/home/2024/0119/man/D_slide_man_accessories_-1.jpg?20240129020206&imwidth=375&impolicy=bershka-itxhigh&imformat=chrome" alt="category-img">
+                <span>Accessories</span>
+            </div>
+            <div class="category">
+                <img src="https://static.bershka.net/4/static/images/home/2024/0119/man/D_slide_man_shoes_-1.jpg?20240129020206&imwidth=375&impolicy=bershka-itxhigh&imformat=chrome" alt="category-img">
+                <span>Shoes</span>
+            </div>
+        </div>
+    </div>
+    <div class="carousel-container">
+        <div class="top-sellers">
+            <span>Top Sellers</span>
+        </div>
+        <p-carousel [value]="products" [numVisible]="3" [circular]="true" [numScroll]="3" [circular]="false" [responsiveOptions]="responsiveOptions">
+            <ng-template let-product pTemplate="item">
+                <div class="carousel-item">
+                    <img style="border-radius: 20px;" [src]="product.image" [alt]="product.name" class="carousel-image" />
+                    <div class="carousel-content">
+                        <h4>{{ product.name }}</h4>
+                        <h6>{{ '₾' + product.price }}</h6>
+                        <div class="car-buttons">
+                            <p-button type="button" styleClass="p-button p-button-rounded" label="Open"></p-button>
+                            <p-button type="button" styleClass="p-button-success p-button-rounded" icon="pi pi-shopping-cart"></p-button>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </p-carousel>
+    </div>
+    <div class="newsletter">
+        <div class="newsletter-info">
+            <span>Subscribe to our newsletter</span>
+            <p>Be the first to get updates and news about our store</p>
+        </div>
+        <form [formGroup]="newsletterForm">
+            <div class="p-inputgroup">
+                <span class="p-inputgroup-addon">
+                    <i class="pi pi-envelope"></i>
+                </span>
+                <input pInputText placeholder="Enter your email" formControlName="email" (click)="toggleMenu()"/>
+            </div>
+            <div class="submit-group" *ngIf="showButtons">
+                <p-button label="Subscribe"></p-button>
+                <p-button label="Cancel" severity="secondary" (click)="hideMenu()"></p-button>
+            </div>
+        </form>
+    </div>
+</div>

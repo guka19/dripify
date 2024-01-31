@@ -1,0 +1,18 @@
+<div class="burger-menu" [class.active]="isMenuOpen" (click)="toggleMenu()">
+  <img class="burger-icon" src="assets/burger/menu.svg" alt="menu">
+  <ul class="menu-items" [ngClass]="{ 'active': isMenuOpen }">
+    <li><a routerLink=""><i class="pi pi-home"></i> Home</a></li>
+    <li><a routerLink="/offers"><i class="pi pi-camera"></i> Collections</a></li>
+    <li><a routerLink="/offers"><i class="pi pi-ticket"></i> Offers</a></li>
+    <li><a routerLink="/about"><i class="pi pi-info-circle"></i> About</a></li>
+    <div class="line"></div>
+      <li class="buttons">
+        <a routerLink="/sign-up">
+          <p-button label="Sign Up" severity="primary"></p-button>
+        </a>
+        <a routerLink="/sign-up">
+          <p-button label="login" [text]="true" severity="primary"></p-button>
+        </a>
+      </li>
+  </ul>
+</div>
